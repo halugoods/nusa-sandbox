@@ -8,7 +8,7 @@ Dokumen ini adalah SOP dan panduan teknis bagi **AI Agent** yang bekerja di sesi
 
 Repository ini (`halugoods/nusa-sandbox`) bertindak sebagai **Single Source of Truth** untuk artefak rilis APK Sandbox dan metadata UI terkini. 
 
-* **APK Rilis**: Tersedia di GitHub Releases tag `v2.3.0+171` (`nusa-sandbox.apk` dan `nusa-sandbox_lite.apk`).
+* **APK Rilis**: Tersedia di GitHub Releases tag `v2.3.0+171` (`nusa-sandbox.apk` — 1 APK tunggal mencakup seluruh 8 varian & 2 mode operasional).
 * **Metadata UI**: File [`UI_CHANGELOG_STUDIO.md`](UI_CHANGELOG_STUDIO.md) berisi daftar lengkap layar, widget key, dan persentase koordinat tap.
 * **Perintah Otomasi**: File [`PLAYBOOK_SANDBOX.md`](PLAYBOOK_SANDBOX.md) berisi skenario tap ADB presisi.
 
