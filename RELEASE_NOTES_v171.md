@@ -12,9 +12,10 @@ Build resmi **NUSA Kasir Creator Sandbox (Unified 16-in-1)** khusus untuk pembua
    - Cukup **1 APK tunggal** (`nusa-sandbox.apk`) untuk mengakses 16 kombinasi aplikasi NUSA Kasir:
      - **8 Varian Usaha**: Kelontong, F&B (Resto/Kafe), Laundry, Bengkel, Salon, Apotek, Fotocopy, Servis Elektronik.
      - **2 Mode Operasional**: Mode Pro (Cloud terhubung) vs Mode Lite (Offline lisensi).
-   - Switcher dapat diakses dari:
-     - **Layar Pertama (Onboarding/Login)**: Tap badge mengambang `[ 🧪 NUSA CREATOR SANDBOX: AKTIF (TAP UNTUK SWITCH) ]`.
+   - Switcher dapat diakses melalui 3 jalur bersih bebas-slop:
+     - **Layar Pertama (Onboarding/Login)**: Tap cepat 5x pada logo NUSA (bebas watermark/badge simulasi).
      - **Layar Pengaturan**: Masuk menu `Tentang Aplikasi` -> tap cepat 5x pada `Kebijakan Privasi`.
+     - **Headless Switcher via ADB**: `adb shell am start -n com.nusa.dev/com.example.nusa_kasir.MainActivity --es variant <variant> --ez pro <bool> --ez onboarding <bool>`.
 
 2. **Fleksibilitas Jalur Rekaman Konten**:
    - **Terapkan & Mulai dari Awal (Onboarding)**: Mereset akun dan data seed, lalu tetap berada di layar Login/Aktivasi agar kreator dapat mendemokan alur pendaftaran, input lisensi, atau Google Sign-In dari nol.

@@ -24,24 +24,33 @@
 
 ---
 
-## 🎛️ Cara Mengakses State Switcher (2 Jalur)
+## 🎛️ Cara Mengakses State Switcher (3 Jalur Bebas-Slop)
 
-### Jalur 1: Dari Layar Awal Login / Onboarding (Disarankan untuk Konten Tutorial)
-Di bagian atas layar pertama aplikasi (`ActivationScreen`), terdapat pill badge mengambang:
-`[ 🧪 NUSA CREATOR SANDBOX: AKTIF (TAP UNTUK SWITCH) ]`
-* **Ketuk badge tersebut** untuk memunculkan bottom sheet **NUSA Creator Studio Control Center**.
-* Pilih Mode: `[ Mode Pro (Cloud) ]` atau `[ Mode Lite (Offline Lisensi) ]`.
-* Pilih salah satu dari 8 Varian Usaha.
-* Tersedia 2 tombol aksi eksekusi:
-  1. **"Terapkan & Mulai dari Awal (Onboarding)"**: Mereset lisensi dan sesi, mengisi database seed, lalu tetap berada di layar Login/Aktivasi agar kreator dapat merekam alur tutorial dari pembuatan akun, pendaftaran toko, atau aktivasi lisensi.
-  2. **"Terapkan & Langsung Masuk Kasir (POS)"**: Mengaktifkan lisensi Pro Lifetime, login otomatis sebagai Owner, dan langsung navigasi ke terminal kasir POS (`/kasir`).
+### Jalur 1: Dari Layar Awal Login / Onboarding (Secret 5x Tap pada Logo NUSA)
+Pada layar login/onboarding aplikasi (`ActivationScreen`), logo NUSA di bagian atas dilengkapi trigger rahasia:
+* **Ketuk 5 kali logo NUSA secara cepat (dalam rentang 2 detik)**.
+* Haptic feedback bergetar dan modal sheet **NUSA Creator Studio Control Center** akan terbuka seketika.
+* Tampilan antarmuka 100% bersih, otentik produksi, tanpa badge "SANDBOX" atau teks simulasi yang mengganggu estetika video tutorial.
 
-### Jalur 2: Dari Pengaturan (Secret 5x Tap)
+### Jalur 2: Dari Pengaturan (Secret 5x Tap pada Kebijakan Privasi)
 Jika sudah berada di dalam aplikasi:
 1. Masuk ke menu **Pengaturan** -> **Tentang Aplikasi**.
 2. Cari baris **"Kebijakan Privasi"** (Privacy Policy).
 3. **Ketuk 5 kali secara cepat dalam jendela 2 detik**.
-4. Haptic feedback getar akan aktif dan modal sheet kontrol akan terbuka seketika.
+4. Haptic feedback getar aktif dan sheet kontrol terbuka seketika tanpa membuka peramban Chrome eksternal.
+
+### Jalur 3: Headless Instant Switcher via ADB (Otomasi Script AI Agent)
+Untuk agen AI atau script otomatisasi perekaman layar ADB, varian dan mode dapat dialihkan secara instan tanpa perlu menyentuh UI:
+```bash
+# Contoh 1: Langsung masuk POS Kasir F&B Pro
+adb shell am start -n com.nusa.dev/com.example.nusa_kasir.MainActivity --es variant fnb --ez pro true --ez onboarding false
+
+# Contoh 2: Beralih ke Apotek Lite mulai dari onboarding/login awal
+adb shell am start -n com.nusa.dev/com.example.nusa_kasir.MainActivity --es variant apotek --ez pro false --ez onboarding true
+```
+* Parameter `--es variant <id>`: `kelontong`, `fnb`, `laundry`, `bengkel`, `salon`, `apotek`, `fotocopy`, `servis`.
+* Parameter `--ez pro <bool>`: `true` (Pro Cloud) atau `false` (Lite Offline lisensi).
+* Parameter `--ez onboarding <bool>`: `true` (mulai dari layar aktivasi/login) atau `false` (langsung bypass login ke POS kasir).
 
 ---
 

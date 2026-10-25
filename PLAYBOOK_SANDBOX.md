@@ -21,12 +21,18 @@ adb shell input tap 540 2208
 
 ## 🎬 Skenario 1: Beralih Varian dari Onboarding / Layar Awal
 
-Jika aplikasi baru dibuka dan berada di `ActivationScreen`:
+### Metode A: Headless Switcher Seketika via ADB Intent (Disarankan 0-Klik)
+```bash
+# Langsung switch varian dan mode tanpa perlu menyentuh menu:
+adb shell am start -n com.nusa.dev/com.example.nusa_kasir.MainActivity --es variant fnb --ez pro true --ez onboarding false
+```
 
-1. **Tap Badge Creator Sandbox** (Bagian atas layar, center):
-   * Koordinat: `50% W, 7% H`
-   * Perintah: `adb shell input tap $(expr $W \* 50 / 100) $(expr $H \* 7 / 100)`
-   * Efek: Membuka modal sheet **NUSA Creator Studio Control Center**.
+### Metode B: Melalui Modal Control Center (5x Tap Logo NUSA)
+Jika berada di `ActivationScreen`:
+1. **Tap Logo NUSA 5x Cepat**:
+   * Koordinat: `50% W, 10% H`
+   * Perintah: `for i in {1..5}; do adb shell input tap 540 240; sleep 0.1; done`
+   * Efek: Haptic feedback getar dan membuka modal sheet **NUSA Creator Studio Control Center**.
 2. **Pilih Mode Operasional**:
    * Mode Pro: `30% W, 32% H`
    * Mode Lite: `70% W, 32% H`

@@ -41,9 +41,14 @@ cat UI_CHANGELOG_STUDIO.md | head -n 40
    gh release download v2.3.0+171 -p "nusa-sandbox.apk" -R halugoods/nusa-sandbox
    adb install -r nusa-sandbox.apk
    ```
-3. Buka aplikasi via ADB Intent:
+3. Buka atau beralih varian seketika via ADB Intent:
    ```bash
+   # Opsi A: Buka standar
    adb shell monkey -p com.nusa.dev -c android.intent.category.LAUNCHER 1
+
+   # Opsi B (Disarankan untuk Agen): Headless Switcher ke varian spesifik
+   # Format: --es variant <kelontong|fnb|laundry|bengkel|salon|apotek|fotocopy|servis> --ez pro <true|false> --ez onboarding <true|false>
+   adb shell am start -n com.nusa.dev/com.example.nusa_kasir.MainActivity --es variant fnb --ez pro true --ez onboarding false
    ```
    *(Catatan: Sandbox menggunakan isolated package ID `com.nusa.dev` sehingga dapat berdampingan dengan 8 aplikasi NUSA produksi).*
 
