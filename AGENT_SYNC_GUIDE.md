@@ -88,3 +88,24 @@ Repository ini selalu mengikuti nomor versi produksi NUSA Kasir:
   8. `halugoods/nusa-servis`
 
 Setiap kali ada fitur baru yang di-merge ke 8 varian di atas, APK Sandbox di repo ini akan di-rebuild dan tag baru akan dirilis secara sinkron.
+
+---
+
+## 6. Fitur "Sambungkan ke Komputer" & PC Portal File Studio
+
+Untuk membuat konten video/demo fitur **"Sambungkan ke Komputer" (LAN Web POS & Portal File)**:
+Gunakan skill resmi: [`skills/nusa-pc-connect-studio/SKILL.md`](skills/nusa-pc-connect-studio/SKILL.md).
+
+### Quickstart Demo PC:
+1. Jalankan port forwarding ADB:
+   ```bash
+   adb forward tcp:8080 tcp:8080
+   ```
+2. Buka browser di PC:
+   - Antrean Berkas Fotocopy: `http://localhost:8080/portal-file`
+   - Terminal Kasir Layar Lebar: `http://localhost:8080/pos`
+3. Atau jalankan standalone microserver tanpa perlu HP terhubung:
+   ```bash
+   python pc_portal_sandbox/run_pc_portal_sandbox.py
+   ```
+*(Menyajikan 4 pesanan berkas fotocopy asli yang bisa langsung diklik 'Unduh ke PC' dan mengunduh berkas PDF ke PC).*
