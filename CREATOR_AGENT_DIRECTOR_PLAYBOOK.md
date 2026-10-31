@@ -19,13 +19,14 @@ Creator Agent WAJIB memahami perbedaan hakiki antara mode Lite dan Pro saat meny
 | **Cetak Struk Bluetooth (58/80mm)**| ✅ Lengkap (Semua Printer Thermal) | ✅ Lengkap (Semua Printer Thermal) |
 | **Katalog Produk & Manajemen Stok** | ✅ Lengkap (Kategori, Varian, Pengingat) | ✅ Lengkap (Kategori, Varian, Pengingat) |
 | **Catat Pelanggan & Hutang-Piutang** | ✅ Lengkap (Jatuh Tempo & Riwayat) | ✅ Lengkap (Jatuh Tempo & Riwayat) |
-| **Laporan Omzet, Laba & Terlaris** | ✅ Lengkap (Tersimpan Lokal di HP) | ✅ Lengkap (Lokal + Dashboard Cloud) |
-| **Backup & Pemulihan Data** | ✅ Backup Lokal SQLite/NUS1 | ✅ Cloud Backup Otomatis (Cloudflare R2) + Lokal |
-| **Sinkronisasi Kasir & Owner (Multi-HP)**| ❌ (1 HP Standalone) | ✅ Sinkron Realtime <1 Detik (Kasir & Owner Beda HP) |
-| **Asisten NUSA (AI Assistant Cerdas)** | ❌ | ✅ Analisis Penjualan & Chat Rekomendasi Bisnis |
-| **Toko Online / Web Storefront Mandiri** | ❌ | ✅ Website Toko Online per-toko (/toko/[slug]) |
-| **Export Spreadsheet (Excel / Google Sheets)** | ❌ | ✅ Export Otomatis ke Google Sheets & Excel |
-| **Multi-Cabang & Manajemen Karyawan** | ❌ (1 Toko / 1 Akun) | ✅ Multi-Cabang & Hak Akses PIN Kasir |
+| **Laporan Omzet & Laba Bersih** | ✅ Lengkap (Tersimpan Lokal di HP) | ✅ Lengkap (Lokal + Dashboard Cloud) |
+| **Asisten NUSA (AI Cerdas)** | ✅ **100% Offline On-Device** (Local LLM di HP) | ✅ **Hybrid** (On-Device + Cloud Intelligence) |
+| **Sambungkan ke Komputer (LAN POS)**| ✅ **1 Komputer / PC Kasir** (via WiFi Lokal HP) | ✅ **Multi-PC Kasir Simultan** (WiFi Lokal + Remote) |
+| **Sinkronisasi Multi-HP (Kasir & Owner)**| ❌ (1 HP Standalone) | ✅ **Sinkron Realtime <1 Detik** (Beda HP/Lokasi) |
+| **Backup & Keamanan Data** | ✅ Backup Lokal Terenkripsi (NUS1) | ✅ **Cloudflare R2 Otomatis** + Backup Lokal |
+| **Toko Online / Web Storefront** | ❌ | ✅ **Website Toko Mandiri** (/toko/[slug]) |
+| **Ekspor Google Sheets** | ❌ (Ekspor CSV / PDF Lokal) | ✅ **Sinkron Langsung ke Google Sheets** |
+| **Multi-Cabang & PIN Karyawan** | ❌ (1 Toko Mandiri) | ✅ **Multi-Cabang & Hak Akses PIN Kasir** |
 | **Metode Pembayaran QRIS** | ✅ QRIS Statis (Scan & Bayar) | ✅ QRIS Dinamis & QRIS Statis |
 
 
