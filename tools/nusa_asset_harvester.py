@@ -16,6 +16,7 @@ import os
 import sys
 import time
 import subprocess
+import re
 from datetime import datetime
 
 # Root output directory
@@ -316,11 +317,31 @@ def capture_clean_screenshot(dest_path):
         return False
 
 
+PACKAGE_NAME = os.environ.get("NUSA_PKG", "com.nusa.kelontong")
+DEVICE_WIDTH = 1080
+DEVICE_HEIGHT = 2400
+
+def get_screen_resolution():
+    global DEVICE_WIDTH, DEVICE_HEIGHT
+    out = run_adb("shell wm size")
+    match = re.search(r"(\d+)x(\d+)", out)
+    if match:
+        DEVICE_WIDTH = int(match.group(1))
+        DEVICE_HEIGHT = int(match.group(2))
+        print(f"[DISPLAY] Resolusi Layar Terdeteksi: {DEVICE_WIDTH}x{DEVICE_HEIGHT}")
+    else:
+        print(f"[DISPLAY] Fallback resolusi standar: {DEVICE_WIDTH}x{DEVICE_HEIGHT}")
+
+def scale_coords(x, y):
+    sx = DEVICE_WIDTH / 1080.0
+    sy = DEVICE_HEIGHT / 2400.0
+    return int(round(x * sx)), int(round(y * sy))
+
 def switch_variant(variant_id, is_pro=True, onboarding=False):
     pro_str = "true" if is_pro else "false"
     onboard_str = "true" if onboarding else "false"
     cmd = (
-        f'shell am start -n com.nusa.dev/com.example.nusa_kasir.MainActivity '
+        f'shell am start -n {PACKAGE_NAME}/com.example.nusa_kasir.MainActivity '
         f'--es variant {variant_id} --ez pro {pro_str} --ez onboarding {onboard_str}'
     )
     run_adb(cmd)
@@ -330,7 +351,8 @@ def switch_variant(variant_id, is_pro=True, onboarding=False):
 def execute_action(action):
     act_type = action[0]
     if act_type == "tap":
-        run_adb(f"shell input tap {action[1]} {action[2]}")
+        rx, ry = scale_coords(action[1], action[2])
+        run_adb(f"shell input tap {rx} {ry}")
     elif act_type == "type":
         run_adb(f'shell input text "{action[1]}"')
     elif act_type == "wait":
@@ -339,15 +361,18 @@ def execute_action(action):
         run_adb("shell input keyevent 4")
         time.sleep(0.3)
     elif act_type == "swipe_up":
-        run_adb("shell input swipe 540 1800 540 600 300")
+        x, y1 = scale_coords(540, 1800)
+        _, y2 = scale_coords(540, 600)
+        run_adb(f"shell input swipe {x} {y1} {x} {y2} 300")
         time.sleep(0.4)
     elif act_type == "tap_logo_5x":
+        lx, ly = scale_coords(540, 240)
         for _ in range(5):
-            run_adb("shell input tap 540 240")
+            run_adb(f"shell input tap {lx} {ly}")
             time.sleep(0.08)
     elif act_type == "route":
         route_path = action[1]
-        run_adb(f'shell am start -n com.nusa.dev/com.example.nusa_kasir.MainActivity -d "nusa://app{route_path}"')
+        run_adb(f'shell am start -n {PACKAGE_NAME}/com.example.nusa_kasir.MainActivity -d "nusa://app{route_path}"')
         time.sleep(0.8)
 
 
@@ -362,6 +387,7 @@ def main():
         sys.exit(1)
         
     print("[OK] Perangkat ADB terdeteksi aktif.")
+    get_screen_resolution()
     print(f"[DEST] Folder Output: {OUTPUT_DIR}\n")
     
     # 1. Aktifkan Do Not Disturb (DND)
