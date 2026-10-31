@@ -3,6 +3,31 @@
 Dokumen ini adalah acuan baku operasional untuk AI Creator Agent dalam mengeksekusi demo aplikasi, screen recording ADB, dan produksi konten visual NUSA Kasir secara presisi, mulus, dan 100% bebas dari kesan palsu (*zero slop*).
 
 ---
+---
+
+## 2. Matriks Resmi Lisensi: Lite vs Pro
+
+Creator Agent WAJIB memahami perbedaan hakiki antara mode Lite dan Pro saat menyusun skrip atau mendemokan fitur:
+
+| Fitur / Kemampuan | NUSA Kasir Lite | NUSA Kasir Pro |
+| :--- | :---: | :---: |
+| **Harga Lisensi** | **Rp 249.000 Sekali Bayar Seumur Hidup** | **Rp 499.000 Sekali Bayar Seumur Hidup** |
+| **Biaya Bulanan / Sewa** | **Rp 0 (Tanpa Biaya Tambahan)** | **Rp 0 (Tanpa Biaya Tambahan)** |
+| **Konektivitas Internet** | **100% Offline Murni (0 Kuota Internet)** | **Offline Tetap Jalan + Cloud Sync Otomatis** |
+| **Model Akun & Login** | Aktivasi Email + Lisensi Key (Tanpa Google) | Google Sign-In + Profil Cloud |
+| **Kasir & Penjualan POS Cepat** | ✅ Lengkap (Barcode, Diskon, Pajak) | ✅ Lengkap (Barcode, Diskon, Pajak) |
+| **Cetak Struk Bluetooth (58/80mm)**| ✅ Lengkap (Semua Printer Thermal) | ✅ Lengkap (Semua Printer Thermal) |
+| **Katalog Produk & Manajemen Stok** | ✅ Lengkap (Kategori, Varian, Pengingat) | ✅ Lengkap (Kategori, Varian, Pengingat) |
+| **Catat Pelanggan & Hutang-Piutang** | ✅ Lengkap (Jatuh Tempo & Riwayat) | ✅ Lengkap (Jatuh Tempo & Riwayat) |
+| **Laporan Omzet, Laba & Terlaris** | ✅ Lengkap (Tersimpan Lokal di HP) | ✅ Lengkap (Lokal + Dashboard Cloud) |
+| **Backup & Pemulihan Data** | ✅ Backup Lokal SQLite/NUS1 | ✅ Cloud Backup Otomatis (Cloudflare R2) + Lokal |
+| **Sinkronisasi Kasir & Owner (Multi-HP)**| ❌ (1 HP Standalone) | ✅ Sinkron Realtime <1 Detik (Kasir & Owner Beda HP) |
+| **Asisten NUSA (AI Assistant Cerdas)** | ❌ | ✅ Analisis Penjualan & Chat Rekomendasi Bisnis |
+| **Toko Online / Web Storefront Mandiri** | ❌ | ✅ Website Toko Online per-toko (/toko/[slug]) |
+| **Export Spreadsheet (Excel / Google Sheets)** | ❌ | ✅ Export Otomatis ke Google Sheets & Excel |
+| **Multi-Cabang & Manajemen Karyawan** | ❌ (1 Toko / 1 Akun) | ✅ Multi-Cabang & Hak Akses PIN Kasir |
+| **Metode Pembayaran QRIS** | ✅ QRIS Statis (Scan & Bayar) | ✅ QRIS Dinamis & QRIS Statis |
+
 
 ## 1. Filosofi & Karakteristik Produksi
 
