@@ -6,7 +6,9 @@ Dokumen ini adalah cetak biru (*blueprint*) pustaka aset visual terstruktur per-
 
 ## 📂 Struktur Direktori Baku
 
-Semua tangkapan layar wajib disimpan di:
+Semua tangkapan layar wajib disimpan di direktori kerja CLI automation:
+`C:\Users\ertyui\ZCodeProject\cli-automation\nusa-kasir\assets\content_library/`
+(atau path relatif `assets/content_library/` dari root `cli-automation/nusa-kasir/`):
 ```text
 assets/content_library/
 ├── 00_global_auth/          (Layar Onboarding & Aktivasi Universal)
