@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-NUSA Kasir - Comprehensive Content Screenshot Harvester (108 Granular Targets)
+NUSA Kasir - Comprehensive Content Screenshot Harvester (136 Granular Targets)
 ================================================================================
 Script otomatis untuk memanen seluruh layar utama, formulir melayang (floating sheet),
 dialog pop-up, kalkulator, dan interaksi mikro di 8 varian NUSA Kasir Creator Sandbox (com.nusa.dev).
 
 Keunggulan:
-- 108 Target Aset Visual Terkurasi (Bukan cuma menu utama, tapi sampai detail floating sheet & modal).
-- Folderisasi Rapi: 11 direktori terpisah (Auth, 8 Varian, Shared POS Flow, Shared Settings).
+- 136 Target Aset Visual Terkurasi (Bukan cuma menu utama, tapi sampai detail floating sheet & modal).
+- Folderisasi Rapi: 12 direktori terpisah (Auth, 8 Varian, Shared POS Flow, Shared Settings, Shared Operations).
 - Penamaan Baku Standar Industri: Langsung siap dikonsumsi AI Vision Multimodal untuk pemetaan konten.
 - Zero-Corrupt Screen Capture Protocol: Menggunakan internal storage staging (/sdcard).
 """
@@ -21,7 +21,7 @@ from datetime import datetime
 # Root output directory
 OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "content_library")
 
-# Master Blueprint: 108 Granular Assets
+# Master Blueprint: 126 Granular Assets
 HARVEST_PLAN = [
     {
         "folder": "00_global_auth",
@@ -216,6 +216,31 @@ HARVEST_PLAN = [
             ("set_10_backup_restore_sheet", "Modal simpan berkas cadangan data .nus1", [("route", "/pengaturan"), ("tap", 540, 1400), ("wait", 0.5), ("back",)]),
             ("set_11_creator_studio_control_sheet", "Modal Creator Studio Control 5x tap logo", [("tap_logo_5x",), ("wait", 0.6), ("back",)]),
             ("set_12_about_license_version_info", "Info versi aplikasi & lisensi lifetime", [("route", "/pengaturan"), ("swipe_up",), ("wait", 0.4)]),
+        ]
+    },
+    {
+        "folder": "11_shared_operations",
+        "variant": "kelontong",
+        "onboarding": False,
+        "items": [
+            ("op_01_shift_cash_drawer_open", "Modal buka kasir & input uang modal awal laci", [("route", "/kasir"), ("tap", 120, 160), ("wait", 0.6), ("back",)]),
+            ("op_02_finance_cashflow_overview", "Buku kas & ringkasan arus kas masuk vs keluar", [("route", "/keuangan"), ("wait", 0.5)]),
+            ("op_03_finance_expense_record_sheet", "Modal formulir catat pengeluaran toko baru", [("route", "/keuangan"), ("tap", 920, 2120), ("wait", 0.6), ("back",)]),
+            ("op_04_stock_opname_audit_screen", "Layar audit stok opname fisik barang gudang", [("route", "/stok"), ("tap", 850, 160), ("wait", 0.5)]),
+            ("op_05_stock_adjustment_confirm_dialog", "Dialog konfirmasi selisih stok fisik vs sistem", [("tap", 540, 700), ("wait", 0.5), ("back",), ("back",)]),
+            ("op_06_transactions_history_list", "Daftar riwayat transaksi & filter tanggal", [("route", "/transaksi"), ("wait", 0.5)]),
+            ("op_07_transaction_detail_receipt_view", "Detail nota transaksi & tombol cetak ulang struk", [("tap", 540, 600), ("wait", 0.6), ("back",)]),
+            ("op_08_transaction_refund_return_dialog", "Modal proses retur barang / refund nota", [("tap", 540, 600), ("tap", 850, 400), ("wait", 0.5), ("back",), ("back",)]),
+            ("op_09_suppliers_vendor_list", "Daftar kontak pemasok & distributor kulakan", [("route", "/supplier"), ("wait", 0.5)]),
+            ("op_10_supplier_add_vendor_sheet", "Modal formulir tambah pemasok / vendor baru", [("route", "/supplier"), ("tap", 920, 2120), ("wait", 0.6), ("back",)]),
+            ("op_11_purchase_order_restock_screen", "Form purchase order / faktur kulakan masuk", [("route", "/pembelian"), ("wait", 0.5)]),
+            ("op_12_attendance_clockin_screen", "Layar absensi kehadiran staf & jam kerja", [("route", "/presensi"), ("wait", 0.5)]),
+            ("op_13_promo_design_studio_editor", "Studio pembuat flyer & poster diskon promosi", [("route", "/desain_promosi"), ("wait", 0.6)]),
+            ("op_14_id_card_member_studio", "Studio cetak ID card staf & kartu member QR", [("route", "/id_card_studio"), ("wait", 0.6)]),
+            ("op_15_online_orders_dashboard", "Dashboard kelola pesanan toko online masuk", [("route", "/pesanan_online"), ("wait", 0.5)]),
+            ("op_16_online_storefront_preview", "Pratinjau etalase belanja online pembeli", [("route", "/toko"), ("wait", 0.5)]),
+            ("op_17_ai_business_consultant_chat", "Layar konsultasi pintar Asisten AI Toko NUSA", [("route", "/ai_chat"), ("wait", 0.5)]),
+            ("op_18_multibranch_outlet_manager", "Pengelolaan multi-cabang outlet & pantau stok", [("route", "/cabang"), ("wait", 0.5)]),
         ]
     }
 ]

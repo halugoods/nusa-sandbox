@@ -23,7 +23,8 @@ import urllib.parse
 from datetime import datetime
 
 PORT = 8080
-ASSETS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'assets')
+CUR_DIR = os.path.dirname(os.path.abspath(__file__))
+ASSETS_DIR = CUR_DIR if os.path.exists(os.path.join(CUR_DIR, 'portal_file_sandbox.html')) else os.path.join(CUR_DIR, '..', 'assets')
 
 # Dummy Minimal Valid PDF bytes
 MINIMAL_PDF_BYTES = bytes([
@@ -354,9 +355,14 @@ def check_adb_and_forward():
         lines = [line.strip() for line in res.stdout.strip().split('\n')[1:] if line.strip() and not line.startswith('*')]
         if lines:
             print(f"[ADB] Ditemukan {len(lines)} perangkat terhubung.")
-            subprocess.run(['adb', 'forward', f'tcp:{PORT}', f'tcp:{PORT}'], check=False)
-            print(f"[ADB] Port forwarding aktif: tcp:{PORT} -> tcp:{PORT}")
-            return True
+            test_res = subprocess.run(['adb', 'shell', 'netstat -tuln 2>/dev/null | grep 8080'], capture_output=True, text=True, timeout=2)
+            if '8080' in test_res.stdout:
+                subprocess.run(['adb', 'forward', f'tcp:{PORT}', f'tcp:{PORT}'], check=False)
+                print(f"[ADB] Port forwarding aktif: tcp:{PORT} -> tcp:{PORT}")
+                return True
+            else:
+                print("[ADB] NUSA Kasir LAN Server di HP belum menyala. Berjalan dalam Mode Standalone Sandbox.")
+                return False
         else:
             print("[ADB] Tidak ada perangkat fisik/emulator terdeteksi. Menggunakan Mode Standalone Sandbox.")
             return False
@@ -368,10 +374,10 @@ def check_adb_and_forward():
 def main():
     has_device = check_adb_and_forward()
     print("=" * 60)
-    print("🚀 NUSA PC PORTAL & WEB POS STUDIO SANDBOX SERVER")
+    print(" [NUSA PC PORTAL & WEB POS STUDIO SANDBOX SERVER] ")
     print("=" * 60)
-    print(f"▶ Antrean File Fotocopy : http://localhost:{PORT}/portal-file")
-    print(f"▶ Web POS Layar Penuh   : http://localhost:{PORT}/pos")
+    print(f">> Antrean File Fotocopy : http://localhost:{PORT}/portal-file")
+    print(f">> Web POS Layar Penuh   : http://localhost:{PORT}/pos")
     print("=" * 60)
 
     # Buka browser otomatis

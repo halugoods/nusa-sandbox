@@ -1,4 +1,4 @@
-# NUSA Kasir - Master Asset Library Playbook (100+ Granular Interaction Blueprint)
+# NUSA Kasir - Master Asset Library Playbook (136 Granular Interaction Blueprint)
 
 Dokumen ini adalah cetak biru (*blueprint*) katalog visual terlengkap untuk seluruh layar, menu, modal pop-up, *floating action sheet*, dan interaksi mikro di **8 Varian Usaha NUSA Kasir**. Dirancang khusus agar **AI Creator Agent (Vision Multimodal)** dapat mempelajari setiap detail aplikasi tanpa ada satu fitur atau interaksi pun yang terlewat.
 
@@ -18,10 +18,11 @@ assets/content_library/
 ├── 07_fotocopy/             (12 Layar & Sheet: Hitung Lembar, Jilid, Spanduk, PC Portal File, Antrean)
 ├── 08_servis/               (10 Layar & Sheet: Tanda Terima Masuk, Pola Layar, Status Pengerjaan, Garansi)
 ├── 09_shared_pos_flow/      (10 Layar & Sheet: Keranjang, Detail Item, Diskon Global, Pilihan Bayar, QRIS, Struk)
-└── 10_shared_settings/      (12 Layar & Sheet: Printer Bluetooth, 58/80mm, Sambungkan PC, PIN Staf, Backup, Studio)
+├── 10_shared_settings/      (12 Layar & Sheet: Printer Bluetooth, 58/80mm, Sambungkan PC, PIN Staf, Backup, Studio)
+└── 11_shared_operations/    (18 Layar & Sheet: Buku Kas, Pengeluaran, Stok Opname, Retur, Supplier, Kulakan PO, Presensi, Desain Promosi, ID Card Studio, Pesanan Online, Tanya AI, Multi-Cabang)
 ```
 
-**Total Aset Terdokumentasi**: **108 Layar & Interaksi Mikro Granular**
+**Total Aset Terdokumentasi**: **136 Layar & Interaksi Mikro Granular**
 
 ---
 
@@ -217,6 +218,31 @@ assets/content_library/
 | `set_10_backup_restore_sheet.png` | Floating Sheet | Modal simpan cadangan data (*backup*) & pulihkan data (*restore*). | Tombol simpan file cadangan `.nus1` ke kartu memori / Google Drive. |
 | `set_11_creator_studio_control_sheet.png` | Floating Sheet | Modal rahasia Creator Studio Control Sheet (hasil 5x tap logo). | Pengontrol instan beralih 8 varian dan mode Pro/Lite untuk pembuatan konten. |
 | `set_12_about_license_version_info.png` | Sub-Screen | Layar informasi lisensi resmi, versi aplikasi (`v2.3.0+171`), dan tombol cek update. | Status lisensi aktif seumur hidup (Lifetime) tanpa biaya bulanan. |
+
+---
+
+## 💼 Bagian 12: 11_shared_operations (Buku Kas, Stok Opname, Retur, Supplier, Presensi & Studio)
+
+| File Asset | Tipe UI | Interaksi yang Ditangkap | Keterangan untuk AI Vision |
+|:---|:---|:---|:---|
+| `op_01_shift_cash_drawer_open.png` | Floating Sheet | Modal buka kasir & input modal awal uang laci saat toko baru buka. | Field input nominal modal kas kecil kasir di awal hari kerja. |
+| `op_02_finance_cashflow_overview.png` | Screen | Layar pembukuan Buku Kas toko (arus kas masuk vs kas keluar). | Ringkasan saldo kas toko, total pemasukan penjualan, dan total pengeluaran operasional. |
+| `op_03_finance_expense_record_sheet.png` | Floating Sheet | Modal formulir pencatatan biaya pengeluaran operasional toko. | Input jenis beban (listrik, air, gaji harian, sewa tempat, sampah) dan upload foto nota bon. |
+| `op_04_stock_opname_audit_screen.png` | Screen | Layar audit stok opname fisik barang di toko & gudang. | Tabel pencocokan stok sistem vs hitungan fisik riil di rak barang. |
+| `op_05_stock_adjustment_confirm_dialog.png` | Modal Dialog | Modal konfirmasi penyesuaian selisih stok (barang rusak, expired, hilang). | Dialog peringatan penyesuaian selisih sebelum stok riil diperbarui permanen. |
+| `op_06_transactions_history_list.png` | Screen | Daftar seluruh riwayat transaksi penjualan & filter tanggal/kasir. | Kartu transaksi nota penjualan dengan status lunas, kasbon, dan metode bayar. |
+| `op_07_transaction_detail_receipt_view.png` | Sub-Screen | Detail rincian nota transaksi belanja & tombol cetak ulang struk. | Rincian item barang terjual, nama kasir, jam transaksi, dan tombol "Cetak Struk Ulang". |
+| `op_08_transaction_refund_return_dialog.png` | Modal Dialog | Modal proses retur barang / refund pengembalian uang konsumen. | Pilihan pengembalian barang rusak atau salah beli dengan input alasan retur. |
+| `op_09_suppliers_vendor_list.png` | Screen | Daftar buku kontak pemasok / agen distributor barang kulakan. | Kartu pemasok lengkap dengan nama sales, nomor WhatsApp, dan alamat gudang distributor. |
+| `op_10_supplier_add_vendor_sheet.png` | Floating Sheet | Modal formulir tambah pemasok / distributor langganan baru. | Input nama distributor, no HP sales, nomor rekening, dan tempo pembayaran (TOP). |
+| `op_11_purchase_order_restock_screen.png` | Screen | Form faktur pembelian barang kulakan masuk (*Purchase Order*). | Input barang masuk dari supplier, harga beli modal (HPP baru), dan tanggal jatuh tempo faktur. |
+| `op_12_attendance_clockin_screen.png` | Screen | Layar absensi kehadiran staf kasir & rekap jam kerja harian. | Tombol jam masuk / jam pulang, status hadir/izin, dan rekap jam kerja mingguan. |
+| `op_13_promo_design_studio_editor.png` | Screen | Studio pembuat flyer & materi promosi diskon media sosial. | Kanvas desain template otomatis siap upload ke WhatsApp Story dan Instagram Feed. |
+| `op_14_id_card_member_studio.png` | Screen | Studio pembuat kartu member pelanggan & ID Card staf kasir. | Kartu cetak ID Card dua sisi lengkap dengan QR Code barcode member toko. |
+| `op_15_online_orders_dashboard.png` | Screen | Dashboard kelola pesanan masuk dari toko online web / WhatsApp. | Tab status pesanan online: Pesanan Baru $\rightarrow$ Sedang Diproses $\rightarrow$ Dikirim $\rightarrow$ Selesai. |
+| `op_16_online_storefront_preview.png` | Web / Screen | Pratinjau etalase toko online mandiri yang dilihat oleh pembeli. | Halaman belanja online responsif per-toko dengan katalog produk dan tombol pesan via WA. |
+| `op_17_ai_business_consultant_chat.png` | Screen | Layar konsultasi pintar Asisten AI Toko NUSA Kasir. | Percakapan tanya jawab analisis performa toko, saran produk laris, dan strategi omzet. |
+| `op_18_multibranch_outlet_manager.png` | Screen | Layar pengelolaan multi-cabang outlet dan pantau stok antar-toko. | Daftar cabang usaha (Cabang 1, Cabang 2), pemindahan staf, dan transfer mutasi stok. |
 
 ---
 
