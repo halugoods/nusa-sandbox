@@ -12,14 +12,14 @@ Semua tangkapan layar wajib disimpan di direktori kerja CLI automation:
 ```text
 assets/content_library/
 ├── 00_global_auth/          (Layar Onboarding & Aktivasi Universal)
-├── 01_kelontong/            (Varian Kelontong: Hijau Emerald #10B981)
+├── 01_kelontong/            (Varian Kelontong: Oranye #F97316)
 ├── 02_fnb/                  (Varian F&B / Kafe / Resto: Merah Crimson #DC2626)
 ├── 03_laundry/              (Varian Laundry Kiloan/Satuan: Pink Rose #EC4899)
 ├── 04_bengkel/              (Varian Bengkel Motor: Kuning Amber #EAB308)
-├── 05_salon/                (Varian Salon & Barbershop: Ungu Violet #8B5CF6)
+├── 05_salon/                (Varian Salon & Barbershop: Biru #3B82F6)
 ├── 06_apotek/               (Varian Apotek & Toko Obat: Hijau Emerald #10B981)
-├── 07_fotocopy/             (Varian Fotocopy & Percetakan: Biru Navy #152C63)
-└── 08_servis/               (Varian Servis HP & Elektronik: Oranye Amber #F97316)
+├── 07_fotocopy/             (Varian Fotocopy & Percetakan: Ungu Violet #8B5CF6)
+└── 08_servis/               (Varian Servis HP & Elektronik: Biru Navy #152C63)
 ```
 
 ---
