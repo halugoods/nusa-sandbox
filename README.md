@@ -20,8 +20,8 @@ Setiap AI Creator Agent yang bertugas diwajibkan membaca dan memahami dokumen pa
    - Protokol layar lipat Samsung Galaxy Z Flip 3 (`display-id 4630947232161729154`).
    - Panduan Silent Cheat Codes ADB.
 2. 📸 **[`ASSET_LIBRARY_PLAYBOOK.md`](ASSET_LIBRARY_PLAYBOOK.md)**:
-   - Cetak biru pustaka tangkapan layar 9 direktori di `assets/content_library/` (00_global_auth sampai 08_servis).
-   - Checklist layar-layar fungsional nyata yang wajib dipetakan untuk automasi CLI.
+   - Cetak biru pustaka tangkapan layar 10 direktori di `assets/content_library/` (`00_global_auth`, `00_global_dashboard_settings`, dan `01_kelontong` sampai `08_servis`).
+   - Checklist layar-layar fungsional nyata, sub-layar modal interaktif, dan alur operasional per-varian untuk automasi CLI.
 3. ✍️ **[`ANTISLOP_COPYWRITING_GUIDELINES.md`](ANTISLOP_COPYWRITING_GUIDELINES.md)**:
    - Standar copywriting pedagang UMKM Indonesia.
    - Larangan istilah teknis pemrogram (SQLite, Cloudflare, API, Backend).

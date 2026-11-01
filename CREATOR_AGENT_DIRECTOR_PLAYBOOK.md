@@ -25,6 +25,14 @@ Dokumen ini adalah acuan baku operasional untuk AI Creator Agent dalam mengeksek
    - Dilarang menyimpan tangkapan layar jika gambar identik dengan layar sebelumnya.
    - Jika layar belum berubah, tunggu sejenak atau lakukan navigasi ulang. Jangan memotret layar yang sama berulang kali di bawah nama file berbeda.
 
+4. **Kewajiban Menangkap Layar Modal & Sub-Menu Interaktif**:
+   - DILARANG hanya memotret daftar menu terluar.
+   - Wajib melakukan ketukan (*tap*) untuk membuka lembar pop-up (*modal sheet*) dan sub-halaman:
+     - **Header Dashboard**: Ketuk ikon awan untuk memotret *Modal Sinkronisasi Cloud*, ketuk ikon lonceng untuk memotret *Notification Center Drawer*.
+     - **Kartu Dashboard**: Potret kondisi default kartu profil staf (*Front Card*), lalu ketuk tombol flip untuk memotret kartu *Ringkasan Hari Ini / Laba Penjualan*.
+     - **Pengaturan**: Buka sub-menu *Fitur & Hak Akses* (Tab 1 Kelola Fitur & Tab 2 RBAC), *Data Toko*, *Toko Online*, *Pembayaran QRIS/Bank*, *Pengaturan Struk WYSIWYG*, dan *LAN POS*.
+     - **Fitur Khusus Varian**: Buka *KDS Dapur* (`/kitchen-display`), *Resep & HPP* (`/recipes`), *Alur Pesanan Dine-in vs Takeaway*, *Split Bill QRIS*, *Form Tiket Servis Baru*, *Kanvas Pola Kunci HP*, *Resep Obat Apotek*, dll.
+
 ---
 
 ## 2. Direktori Cheat Code Senyap (Headless Control)
